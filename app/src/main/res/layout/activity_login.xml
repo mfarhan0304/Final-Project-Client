@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/linearParent"
+    android:padding="@dimen/authViewsMargin"
+    tools:context=".activities.LoginActivity">
+
+    <TextView
+        style="@style/headerTextPrimary"
+        android:text="Login"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="25dp" />
+
+    <LinearLayout
+        android:id="@+id/inputLayoutUsername"
+        style="@style/linearParent">
+
+        <TextView
+            style="@style/modifiableEditText"
+            android:text="Username" />
+
+        <EditText
+            android:id="@+id/inputUsername"
+            style="@style/modifiableEditText"
+            android:maxLines="1" />
+    </LinearLayout>
+
+    <TextView
+        style="@style/modifiableEditText"
+        android:layout_marginTop="@dimen/authItemSpace"
+        android:text="Voice" />
+
+    <LinearLayout
+        android:id="@+id/audioPlayerBox"
+        style="@style/parentWithBorder"
+        android:visibility="gone"
+        android:weightSum="10">
+
+        <ImageButton
+            android:id="@+id/playButton"
+            style="@style/mediaPlayerButton"
+            android:src="@drawable/ic_play"
+            android:layout_weight="1" />
+
+        <SeekBar
+            android:id="@+id/loginSeekBar"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="8" />
+
+        <ImageButton
+            android:id="@+id/deleteButton"
+            style="@style/mediaPlayerButton"
+            android:src="@drawable/ic_delete"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/recordButtonBox"
+        style="@style/parentWithBorder"
+        android:weightSum="1">
+
+        <ImageButton
+            android:id="@+id/recordButton"
+            style="@style/mediaPlayerButton"
+            android:src="@drawable/ic_record"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/loginButton"
+        style="@style/authButton"
+        android:text="Login" />
+
+    <TextView
+        android:id="@+id/noAccountButton"
+        style="@style/changeAuthButton"
+        android:text="Don\'t have an account? Register here" />
+
+</LinearLayout>

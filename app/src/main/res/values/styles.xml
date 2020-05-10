@@ -1,0 +1,74 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!--designs for auth-->
+    <style name="parent">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="linearParent" parent="parent">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="parentWithBorder" parent="parent">
+        <item name="android:background">@drawable/border</item>
+        <item name="android:padding">@dimen/offsetBorder</item>
+    </style>
+
+    <style name="headerText" parent="parent">
+        <item name="android:textSize">@dimen/headerTextSize</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/whiteTextColor</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="headerTextPrimary" parent="headerText">
+        <item name="android:textColor">@color/primaryTextColor</item>
+    </style>
+
+    <style name="modifiableEditText" parent="parent">
+        <item name="android:textSize">@dimen/modifiableEditTextSize</item>
+        <item name="android:backgroundTint">@color/primaryTextColor</item>
+    </style>
+
+    <style name="viewParent">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="authButton" parent="viewParent">
+        <item name="android:background">@drawable/auth_button</item>
+        <item name="android:layout_width">125dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_marginTop">@dimen/authViewsMargin</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:textColor">@color/whiteTextColor</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="changeAuthButton" parent="parent">
+        <item name="android:textAlignment">center</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:layout_marginTop">@dimen/authViewsMargin</item>
+    </style>
+
+    <style name="mediaPlayerButton">
+        <item name="android:background">#00000000</item>
+        <item name="android:layout_width">10dp</item>
+        <item name="android:layout_height">35dp</item>
+    </style>
+
+    <style name="radioButton" parent="viewParent">
+        <item name="android:buttonTint">@color/primaryTextColor</item>
+    </style>
+
+</resources>

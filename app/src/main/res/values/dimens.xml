@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="authViewsMargin">20dp</dimen>
+    <dimen name="authItemSpace">10dp</dimen>
+    <dimen name="headerTextSize">22sp</dimen>
+    <dimen name="modifiableEditTextSize">12sp</dimen>
+    <dimen name="offsetBorder">1dp</dimen>
+</resources>

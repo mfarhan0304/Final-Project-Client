@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/linearParent"
+    android:padding="@dimen/authViewsMargin"
+    tools:context=".activities.RegisterActivity">
+
+    <TextView
+        style="@style/headerTextPrimary"
+        android:text="Register"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="25dp"/>
+
+    <TextView
+        style="@style/modifiableEditText"
+        android:text="Username" />
+
+    <EditText
+        android:id="@+id/inputUsernameRegister"
+        style="@style/modifiableEditText"
+        android:maxLines="1" />
+
+    <TextView
+        style="@style/modifiableEditText"
+        android:layout_marginTop="@dimen/authItemSpace"
+        android:text="Gender" />
+
+    <RadioGroup
+        android:id="@+id/radioGender"
+        style="@style/parent">
+
+        <RadioButton
+            android:id="@+id/radioFemale"
+            style="@style/radioButton"
+            android:text="@string/radio_female"
+            android:checked="true" />
+
+        <RadioButton
+            android:id="@+id/radioMale"
+            style="@style/radioButton"
+            android:text="@string/radio_male" />
+    </RadioGroup>
+
+    <TextView
+        style="@style/modifiableEditText"
+        android:layout_marginTop="@dimen/authItemSpace"
+        android:text="Voice" />
+
+    <ListView
+        android:id="@+id/voiceListRegister"
+        style="@style/parent"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="5dp" />
+
+    <LinearLayout
+        android:id="@+id/recordButtonRegisterBox"
+        style="@style/parentWithBorder"
+        android:layout_marginBottom="5dp"
+        android:weightSum="1">
+
+        <ImageButton
+            android:id="@+id/recordButtonRegister"
+            style="@style/mediaPlayerButton"
+            android:src="@drawable/ic_record"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/registerButton"
+        style="@style/authButton"
+        android:text="Register" />
+
+    <TextView
+        android:id="@+id/haveAccountText"
+        style="@style/changeAuthButton"
+        android:text="Already have an account? Log In here" />
+
+</LinearLayout>
