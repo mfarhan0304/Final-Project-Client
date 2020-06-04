@@ -36,17 +36,18 @@ import static com.finalproject.PermissionUtil.isPermissionGranted;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private static EditText username_input;
-    private static Button login_button;
-    private static ImageButton record_button, play_button, delete_button;
-    private static SeekBar voice_progress;
-    private static LinearLayout audio_player_box, record_button_box;
-    private static TextView no_account_text;
+    private EditText username_input;
+    private Button login_button;
+    private ImageButton record_button, play_button, delete_button;
+    private SeekBar voice_progress;
+    private LinearLayout audio_player_box, record_button_box;
+    private TextView no_account_text;
 
     private File voiceFile;
 
     private WaveRecorder waveRecorder = null;
     private boolean isRecording = false;
+    private boolean isRecorded = false;
     private String fileName = "test.wav";
     private String filePath = "";
     private MediaPlayer mediaPlayer = null;
@@ -92,6 +93,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (isRecording) {
                     stopRecording();
                     isRecording = false;
+                    isRecorded = true;
                     viewChanges(View.GONE, View.VISIBLE);
                     record_button.setColorFilter(Color.argb(0,0,0,0));
                 } else {
@@ -115,6 +117,8 @@ public class LoginActivity extends AppCompatActivity {
         delete_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                isRecorded = false;
+
                 mediaPlayer.release();
                 record_button.setColorFilter(Color.argb(255,0,0,0));
                 viewChanges(View.VISIBLE, View.GONE);
@@ -125,14 +129,13 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 mediaPlayer.release();
-                voiceFile = new File(filePath);
                 String username = username_input.getText().toString().trim();
-                if (!username.isEmpty() && voiceFile.exists()) {
+                if (!username.isEmpty() && isRecorded) {
                     login(username);
                 } else {
                     Toast.makeText(getApplicationContext(),
                             "Kindly fill username and record your voice first",
-                            Toast.LENGTH_SHORT).show();
+                            Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -191,7 +194,7 @@ public class LoginActivity extends AppCompatActivity {
                 "voice", fileName, requestFile
         );
         APIService.getAPIService().login(username, voice).enqueue(new Callback<AuthResponse>() {
-            Toast toast = Toast.makeText(getApplicationContext(),"",Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(getApplicationContext(),"",Toast.LENGTH_LONG);
             @Override
             public void onResponse(Call<AuthResponse> call, Response<AuthResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
