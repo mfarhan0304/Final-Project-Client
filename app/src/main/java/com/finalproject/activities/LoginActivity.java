@@ -4,13 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.media.AudioRecord;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -201,7 +197,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (response.isSuccessful() && response.body() != null) {
                     toast.setText("Welcome " + response.body().getUsername());
                 } else {
-                    toast.setText("You are not permitted");
+                    toast.setText(response.body().getStatusMessage());
                 }
                 toast.show();
             }

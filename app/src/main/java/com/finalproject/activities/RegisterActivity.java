@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.database.DataSetObserver;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -29,7 +28,6 @@ import com.github.squti.androidwaverecorder.WaveRecorder;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import okhttp3.MediaType;
@@ -140,7 +138,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void startRecording() {
-        String filename = "test" + voiceArrayList.size()+1 + ".wav";
+        String filename = "enroll" + voiceArrayList.size() + ".wav";
         String filePath = getFilesDir() + "/" + filename;
 
         waveRecorder = new WaveRecorder(filePath);
@@ -148,7 +146,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void stopRecording() {
-        String filename = "test" + voiceArrayList.size()+1 + ".wav";
+        String filename = "enroll" + voiceArrayList.size() + ".wav";
         String filePath = getFilesDir() + "/" + filename;
 
         waveRecorder.stopRecording();
@@ -185,7 +183,7 @@ public class RegisterActivity extends AppCompatActivity {
                 if (response.isSuccessful() && response.body() != null) {
                     toast.setText("Welcome " + response.body().getUsername());
                 } else {
-                    toast.setText("You are not permitted");
+                    toast.setText(response.body().getStatusMessage());
                 }
                 toast.show();
             }
