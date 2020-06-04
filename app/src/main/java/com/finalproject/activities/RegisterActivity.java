@@ -182,7 +182,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<AuthResponse> call, Response<AuthResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
-                    toast.setText("Welcome " + response.body().getUsername());
+                    toast.setText(response.body().getUsername() + ", your account has been successfully created");
                 } else {
                     toast.setText(response.body().getStatusMessage());
                 }

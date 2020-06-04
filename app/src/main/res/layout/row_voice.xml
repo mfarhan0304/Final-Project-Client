@@ -7,17 +7,20 @@
         android:id="@+id/playButton"
         style="@style/mediaPlayerButton"
         android:src="@drawable/ic_play"
+        android:paddingBottom="3dp"
         android:layout_weight="1" />
 
     <SeekBar
         android:id="@+id/voiceSeekBar"
         android:layout_width="0dp"
         android:layout_height="match_parent"
+        android:paddingBottom="3dp"
         android:layout_weight="8" />
 
     <ImageButton
         android:id="@+id/deleteButton"
         style="@style/mediaPlayerButton"
         android:src="@drawable/ic_delete"
+        android:paddingBottom="3dp"
         android:layout_weight="1" />
 </LinearLayout>
