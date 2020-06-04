@@ -43,8 +43,6 @@ public class LoginActivity extends AppCompatActivity {
     private LinearLayout audio_player_box, record_button_box;
     private TextView no_account_text;
 
-    private File voiceFile;
-
     private WaveRecorder waveRecorder = null;
     private boolean isRecording = false;
     private boolean isRecorded = false;
@@ -87,7 +85,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void bindListener() {
-        record_button.setOnClickListener(new View.OnClickListener() {
+        record_button_box.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (isRecording) {
@@ -96,10 +94,12 @@ public class LoginActivity extends AppCompatActivity {
                     isRecorded = true;
                     viewChanges(View.GONE, View.VISIBLE);
                     record_button.setColorFilter(Color.argb(0,0,0,0));
+                    record_button_box.setBackgroundResource(R.drawable.border);
                 } else {
                     startRecording();
                     isRecording = true;
                     record_button.setColorFilter(Color.argb(255,0,170,77));
+                    record_button_box.setBackgroundResource(R.drawable.border_active);
                 }
             }
         });
@@ -188,7 +188,7 @@ public class LoginActivity extends AppCompatActivity {
         );
         RequestBody requestFile = RequestBody.create(
                 MediaType.parse("audio/wav"),
-                voiceFile
+                new File(filePath)
         );
         MultipartBody.Part voice = MultipartBody.Part.createFormData(
                 "voice", fileName, requestFile

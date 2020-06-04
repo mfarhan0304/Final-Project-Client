@@ -16,7 +16,6 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.finalproject.APIService;
@@ -39,13 +38,13 @@ import retrofit2.Response;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private static EditText usernameInput;
-    private static RadioGroup genderRadioGroup;
-    private static ListView voiceListView;
-    private static LinearLayout recordButtonBox;
-    private static ImageButton recordButton;
-    private static Button registerButton;
-    private static TextView haveAccountText;
+    private EditText usernameInput;
+    private RadioGroup genderRadioGroup;
+    private ListView voiceListView;
+    private LinearLayout recordButtonBox;
+    private ImageButton recordButton;
+    private Button registerButton;
+    private TextView haveAccountText;
 
     private ArrayList<Voice> voiceArrayList;
     private VoiceAdapter voiceAdapter;
@@ -54,7 +53,7 @@ public class RegisterActivity extends AppCompatActivity {
     private WaveRecorder waveRecorder;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         bindView();
@@ -98,15 +97,17 @@ public class RegisterActivity extends AppCompatActivity {
                 voiceListView.requestLayout();
             }
         });
-        recordButton.setOnClickListener(new View.OnClickListener() {
+        recordButtonBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (isRecording) {
                     stopRecording();
                     recordButton.setColorFilter(Color.argb(0,0,0,0));
+                    recordButtonBox.setBackgroundResource(R.drawable.border);
                 } else {
                     startRecording();
                     recordButton.setColorFilter(Color.argb(255,0,170,77));
+                    recordButtonBox.setBackgroundResource(R.drawable.border_active);
                 }
                 isRecording = !isRecording;
             }
@@ -131,7 +132,7 @@ public class RegisterActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(getApplicationContext(),
                             "Kindly fill username, gender, and record 5 times of your voice first",
-                            Toast.LENGTH_SHORT).show();
+                            Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -177,7 +178,7 @@ public class RegisterActivity extends AppCompatActivity {
         }
 
         APIService.getAPIService().register(requestUsername, requestGender, requestVoices).enqueue(new Callback<AuthResponse>() {
-            Toast toast = Toast.makeText(getApplicationContext(),"",Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(getApplicationContext(),"",Toast.LENGTH_LONG);
             @Override
             public void onResponse(Call<AuthResponse> call, Response<AuthResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {

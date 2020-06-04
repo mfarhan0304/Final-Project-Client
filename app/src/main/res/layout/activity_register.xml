@@ -56,13 +56,20 @@
         android:id="@+id/recordButtonRegisterBox"
         style="@style/parentWithBorder"
         android:layout_marginBottom="5dp"
-        android:weightSum="1">
+        android:gravity="center">
 
         <ImageButton
             android:id="@+id/recordButtonRegister"
             style="@style/mediaPlayerButton"
             android:src="@drawable/ic_record"
-            android:layout_weight="1" />
+            android:paddingBottom="3dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/authItemSpace"
+            android:text="Please say &quot;suara saya adalah kata sandi saya&quot;"
+            android:paddingBottom="3dp" />
     </LinearLayout>
 
     <Button

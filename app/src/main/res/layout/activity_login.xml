@@ -58,18 +58,26 @@
     <LinearLayout
         android:id="@+id/recordButtonBox"
         style="@style/parentWithBorder"
-        android:weightSum="1">
+        android:gravity="center">
 
         <ImageButton
             android:id="@+id/recordButton"
             style="@style/mediaPlayerButton"
             android:src="@drawable/ic_record"
-            android:layout_weight="1"/>
+            android:paddingBottom="3dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/authItemSpace"
+            android:text="Please say your password"
+            android:paddingBottom="3dp" />
     </LinearLayout>
 
     <Button
         android:id="@+id/loginButton"
         style="@style/authButton"
+        android:elevation="2dp"
         android:text="Login" />
 
     <TextView

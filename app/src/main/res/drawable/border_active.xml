@@ -12,7 +12,7 @@
             <solid android:color="#FAFAFA" />
             <stroke
                 android:width="@dimen/offsetBorder"
-                android:color="@color/primaryTextColor" />
+                android:color="#00AA4D" />
         </shape>
     </item>
 </layer-list>
