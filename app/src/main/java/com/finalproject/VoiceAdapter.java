@@ -18,6 +18,8 @@ public class VoiceAdapter extends BaseAdapter {
 
     private ArrayList<Voice> voices;
     private LayoutInflater layoutInflater;
+    private MediaPlayer mediaPlayer;
+    private Handler handler;
 
     public VoiceAdapter(Context context, ArrayList<Voice> voices) {
         this.voices = voices;
@@ -58,8 +60,8 @@ public class VoiceAdapter extends BaseAdapter {
 
         Voice voice = voices.get(position);
 
-        final MediaPlayer mediaPlayer = new MediaPlayer();
-        final Handler handler = new Handler();
+        mediaPlayer = new MediaPlayer();
+        handler = new Handler();
         try {
             mediaPlayer.setDataSource(voice.getFilePath());
             mediaPlayer.prepare();
